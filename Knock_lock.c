@@ -166,9 +166,9 @@ void close_lock(void) {
 
 /* Turns on the timer */
 void turn_on_timer(void) {
-	uint8_t compare_ticks = 125;	//Interrupt every 10ms
+	uint8_t compare_ticks = 125;	//Interrupt every 1ms
 	TCCR0A = (1 << WGM01);				//Set the CTC bit
-	OCR0A = compare_ticks;				//Interrupt every 10ms
+	OCR0A = compare_ticks;				//Interrupt every 1ms
 	TIMSK0 = (1 << OCIE0A);				//Enable compare register interrupts
 	TCCR0B = (1 << CS01) | (1 << CS00);	//Set pre-scalar to 64
 }
