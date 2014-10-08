@@ -1,4 +1,4 @@
-ECE411-Project
+The nocLock
 ==============
 
-This is a ultra secret knock detector locking mechanism.
+A secret knock detector for you to hide your everyday items!
