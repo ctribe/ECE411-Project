@@ -1,5 +1,7 @@
 /*
- * nocLock.c
+ * nocLock_simulation.c
+ * 
+ * Used to verify the design in the AVR Studio simulator
  *
  * Created: 10/3/2014 7:12:52 PM
  *  Authors: Sean Koppenhafer, Cameron Tribe, Travis Berger, Jaime Rodriguez
@@ -13,6 +15,7 @@
 #include <avr/interrupt.h>
 #include <avr/eeprom.h>
 #include <inttypes.h>
+#include <util/delay.h>
 
 uint8_t check_button(void);
 uint8_t store_code(int*);
@@ -38,10 +41,9 @@ int main(void)
 	uint8_t button_return;
 	int knock_times[MAXIMUM_KNOCKS];
 	DDRB = 0x02;	//Make PORT1 of B an output and port 0 an input
-	PORTB = 0x01;	//Turn on pull up resistors for button on port 0
+	PORTB = 0x05;	//Turn on pull up resistors port 0 and 2
 	button_return = 0xFF;
-	sei();			//Turn on global interrupts
-	setup_ADC();
+	sei();
 	
 	/*If read_eeprom returns 0, then no knock is currently stored
 	which means we keep the solenoid unlocked */
@@ -94,12 +96,13 @@ uint8_t check_button(void) {
 }
 
 uint8_t store_code(int* knock_times) {
+	turn_on_timer();
 	uint8_t knock_index;
 	uint8_t button_return;
 	
 	button_return = check_button();
 	knock_index = 0;
-	while( ADC < SOUND_THRESHOLD ) {
+	while( !(PINB & 0x04) ) {
 		if( !button_return ) {
 			goto EXIT; //No knocks were recorded before the button was pressed
 		}
@@ -113,7 +116,7 @@ uint8_t store_code(int* knock_times) {
 	//Grab input until button is pressed again
 	while( button_return ) {
 		//Only store sounds that are louder than the threshold
-		if( ADC > SOUND_THRESHOLD ) {
+		if( PINB & 0x04 ) {
 			knock_times[knock_index++] = current_time_ms;
 		}
 		
@@ -137,7 +140,7 @@ uint8_t check_code(int* orig_knock_times, uint8_t orig_knock_number) {
 	
 	button_return = check_button();
 	knock_index = 0;
-	while( ADC < SOUND_THRESHOLD ) {
+	while( !(PINB & 0x04) ) {
 		if( !button_return ) {
 			retval = 3;
 			goto EXIT; //No knocks were recorded before the button was pressed
@@ -152,7 +155,7 @@ uint8_t check_code(int* orig_knock_times, uint8_t orig_knock_number) {
 	//Grab input until button is pressed again
 	while( button_return ) {
 		//Only store sounds that are louder than the threshold
-		if(  ADC > SOUND_THRESHOLD ) {
+		if( PINB & 0x04 ) {
 			unlock_knock_times[knock_index++] = current_time_ms;
 		}
 		button_return = check_button();
@@ -245,7 +248,7 @@ void write_eeprom(int* knock_times, uint8_t knock_number) {
 	
 	/* Write the number of knocks to address 0x00 in eeprom
 	then write the knock times into the next addresses */
-	eeprom_write_byte( (uint8_t*)eeprom_address, knock_number );
+	eeprom_write_byte( (uint8_t*)eeprom_address, (uint8_t)knock_number );
 	eeprom_address += 4;		//dword align the address
 	
 	for(i = 0; i < knock_number; i++) {
