@@ -8,6 +8,9 @@
 #define F_CPU 8000000		//8MHz CPU clock
 #define MAXIMUM_KNOCKS 10
 #define SOUND_THRESHOLD 200
+#define BAUD 9600
+#define BAUD_CALC_RATE ((F_CPU/16/BAUD) - 1)
+#define TIME_OFFSET_MS 100		//Time offset for inputting code in MS
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -17,16 +20,26 @@
 uint8_t check_button(void);
 uint8_t store_code(int*);
 uint8_t check_code(int*, uint8_t);
+
 void open_lock(void);
 void close_lock(void);
+void green_LED_on(void);
+void green_LED_off(void);
+void red_LED_on(void);
+void red_LED_off(void);
+
 void turn_on_timer(void);
 void turn_off_timer(void);
+
 int time_gap_average(int*, int);
+
 void setup_ADC(void);
 void start_conversion(void);
+
 void write_eeprom(int*, uint8_t);
 uint8_t read_eeprom(int*);
 void clear_eeprom(void);
+void setup_serial(void);
 
 int current_time_ms = 0;
 
@@ -37,11 +50,12 @@ int main(void)
 	uint8_t matching_knocks;
 	uint8_t button_return;
 	int knock_times[MAXIMUM_KNOCKS];
-	DDRB = 0x02;	//Make PORT1 of B an output and port 0 an input
-	PORTB = 0x01;	//Turn on pull up resistors for button on port 0
+	DDRB = 0x0E;	//Make PORT1-3 of B an output and port 0 an input
+	PORTB = 0x02;	//Turn on pull up resistors for button on port 0
 	button_return = 0xFF;
 	sei();			//Turn on global interrupts
 	setup_ADC();
+	setup_serial();
 	
 	/*If read_eeprom returns 0, then no knock is currently stored
 	which means we keep the solenoid unlocked */
@@ -49,10 +63,12 @@ int main(void)
 	if( knock_number == 0xFF || knock_number == 0 ) {	//EEPROM starts off as 0xFF after being reprogrammed
 		open_lock();
 		locked = 0;
+		green_LED_on();
 	}
 	else {
 		close_lock();
 		locked = 1;
+		red_LED_on();
 	}
 	
 	button_return = check_button();
@@ -67,6 +83,8 @@ int main(void)
 					open_lock();
 					clear_eeprom();
 					locked = 0;
+					red_LED_off();
+					green_LED_on();
 				}
 			}
 			else {
@@ -75,6 +93,8 @@ int main(void)
 					close_lock();
 					write_eeprom(&knock_times[0], knock_number);	//Store in case power turns off
 					locked = 1;
+					green_LED_off();
+					red_LED_on();
 				}
 			}
 		}
@@ -118,6 +138,10 @@ uint8_t store_code(int* knock_times) {
 		}
 		
 		button_return = check_button();
+		//Poll until we can send data again
+		while( !( UCSR0A & ( 1 << UDRE0 )) ) {
+			UDR0 = ADCL;	//Send lower 8 bytes of serial to the console
+		}
 	}
 	
 	turn_off_timer();
@@ -168,9 +192,12 @@ uint8_t check_code(int* orig_knock_times, uint8_t orig_knock_number) {
 	//orig_gaps = time_gap_average(orig_knock_times, orig_knock_number);
 	//unlock_gaps = time_gap_average(&unlock_knock_times[0], knock_index);
 	
+	int orig, new;
 	//Compare the timer values - needs a threshold to accept reasonable values
 	for(timer_index = 0; timer_index < knock_index; timer_index++) {
-		if( orig_knock_times[timer_index] != unlock_knock_times[timer_index] ) {
+		orig = orig_knock_times[timer_index];
+		new = unlock_knock_times[timer_index];
+		if( (new < (orig - TIME_OFFSET_MS)) || (new > (orig + TIME_OFFSET_MS)) ) {
 			retval = 2;
 			goto EXIT;
 		}
@@ -189,6 +216,22 @@ void open_lock(void) {
 
 void close_lock(void) {
 	PORTB &= ~0x02;
+}
+
+void green_LED_on(void) {
+	PORTB |= 0x04;
+}
+
+void green_LED_off(void) {
+	PORTB &= ~0x04;
+}
+
+void red_LED_on(void) {
+	PORTB |= 0x08;
+}
+
+void red_LED_off(void) {
+	PORTB &= ~0x08;
 }
 
 /* Turns on the timer */
@@ -291,6 +334,15 @@ void clear_eeprom(void) {
 	eeprom_address = 0;
 	
 	eeprom_write_byte(eeprom_address, knock_count);
+}
+
+/* Setup UART for serial transfers */
+void setup_serial(void) {
+	//Set the BAUD rate
+	UBRR0H = (BAUD_CALC_RATE >> 8);
+	UBRR0L = BAUD_CALC_RATE;
+	UCSR0B = (1 << TXEN0);					//Enable TX pin
+	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);	//8 bit data transmission
 }
 
 /* Interrupt service routine for timer */
