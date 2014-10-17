@@ -6041,7 +6041,7 @@ unfilled</description>
 <instance part="SUPPLY6" gate="GND" x="109.22" y="170.18"/>
 <instance part="SUPPLY7" gate="GND" x="124.46" y="165.1"/>
 <instance part="U1" gate="G$1" x="210.82" y="182.88"/>
-<instance part="J1" gate="G$1" x="93.98" y="287.02" rot="MR180"/>
+<instance part="J1" gate="G$1" x="93.98" y="287.02"/>
 <instance part="D1" gate="G$1" x="137.16" y="289.56"/>
 <instance part="GND1" gate="1" x="114.3" y="274.32"/>
 <instance part="J2" gate="G$1" x="127" y="266.7"/>
@@ -6051,27 +6051,29 @@ unfilled</description>
 <nets>
 <net name="GND" class="0">
 <segment>
-<pinref part="J1" gate="G$1" pin="1"/>
-<wire x1="101.6" y1="284.48" x2="114.3" y2="284.48" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="284.48" x2="114.3" y2="276.86" width="0.1524" layer="91"/>
 <pinref part="GND1" gate="1" pin="GND"/>
+<pinref part="J1" gate="G$1" pin="3"/>
+<wire x1="101.6" y1="284.48" x2="114.3" y2="284.48" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="WALL/BATT_9V" class="0">
 <segment>
-<pinref part="J1" gate="G$1" pin="3"/>
 <pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="101.6" y1="289.56" x2="129.54" y2="289.56" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="289.56" x2="134.62" y2="289.56" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="269.24" x2="129.54" y2="289.56" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="1"/>
+<wire x1="101.6" y1="289.56" x2="129.54" y2="289.56" width="0.1524" layer="91"/>
 <junction x="129.54" y="289.56"/>
+<label x="106.68" y="289.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="BATT_GND" class="0">
 <segment>
-<pinref part="J1" gate="G$1" pin="2"/>
-<wire x1="101.6" y1="287.02" x2="124.46" y2="287.02" width="0.1524" layer="91"/>
 <wire x1="124.46" y1="269.24" x2="124.46" y2="287.02" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="2"/>
+<wire x1="124.46" y1="287.02" x2="101.6" y2="287.02" width="0.1524" layer="91"/>
+<label x="106.68" y="287.02" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
