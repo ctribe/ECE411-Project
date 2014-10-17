@@ -333,7 +333,7 @@
 <wire x1="0.635" y1="5.08" x2="1.905" y2="5.08" width="0.254" layer="94"/>
 <wire x1="1.905" y1="5.08" x2="1.905" y2="3.81" width="0.254" layer="94"/>
 </symbol>
-<<<<<<< HEAD
+<<<<<< HEAD
 <symbol name="JST-[S2B-PH-K-S(LF)(SN)]">
 <circle x="-2.54" y="0" radius="1.27" width="0.254" layer="94"/>
 <circle x="2.54" y="0" radius="1.27" width="0.254" layer="94"/>
