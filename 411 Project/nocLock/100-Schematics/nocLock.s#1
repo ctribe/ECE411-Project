@@ -8328,6 +8328,11 @@ Based on the following sources:
 <wire x1="347.98" y1="248.92" x2="347.98" y2="302.26" width="0.1524" layer="97"/>
 <wire x1="347.98" y1="302.26" x2="276.86" y2="302.26" width="0.1524" layer="97"/>
 <text x="279.4" y="299.72" size="1.778" layer="97">Program Button</text>
+<wire x1="172.72" y1="302.26" x2="172.72" y2="251.46" width="0.1524" layer="97"/>
+<wire x1="172.72" y1="251.46" x2="266.7" y2="251.46" width="0.1524" layer="97"/>
+<wire x1="266.7" y1="251.46" x2="266.7" y2="302.26" width="0.1524" layer="97"/>
+<wire x1="172.72" y1="302.26" x2="266.7" y2="302.26" width="0.1524" layer="97"/>
+<text x="175.26" y="299.72" size="1.778" layer="97">Reset Button</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="66.04" y="30.48"/>

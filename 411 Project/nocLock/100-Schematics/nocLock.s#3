@@ -8300,6 +8300,9 @@ Based on the following sources:
 <part name="S1" library="switch" deviceset="SKHMP*E010" device="" technology="S"/>
 <part name="U2" library="45xx" deviceset="4584" device="D"/>
 <part name="S2" library="switch" deviceset="SKHMP*E010" device="" technology="S"/>
+<part name="P+6" library="supply1" deviceset="+5V" device=""/>
+<part name="C9" library="rcl" deviceset="C-EU" device="C0805" value="0.1uF"/>
+<part name="SUPPLY10" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8328,7 +8331,7 @@ Based on the following sources:
 <instances>
 <instance part="FRAME1" gate="G$1" x="66.04" y="30.48"/>
 <instance part="FRAME1" gate="G$2" x="391.16" y="30.48"/>
-<instance part="D1" gate="D" x="228.6" y="287.02" rot="R90"/>
+<instance part="D1" gate="D" x="101.6" y="276.86" rot="R90"/>
 <instance part="U1" gate="G$1" x="325.12" y="200.66"/>
 <instance part="R1" gate="G$1" x="320.04" y="111.76" rot="R90"/>
 <instance part="R2" gate="G$1" x="363.22" y="111.76" rot="R90"/>
@@ -8377,6 +8380,10 @@ Based on the following sources:
 <instance part="U2" gate="C" x="251.46" y="276.86"/>
 <instance part="U2" gate="D" x="124.46" y="292.1"/>
 <instance part="S2" gate="G$1" x="185.42" y="266.7" rot="R90"/>
+<instance part="U2" gate="P" x="386.08" y="279.4"/>
+<instance part="P+6" gate="1" x="386.08" y="292.1"/>
+<instance part="C9" gate="G$1" x="396.24" y="281.94"/>
+<instance part="SUPPLY10" gate="GND" x="386.08" y="266.7"/>
 </instances>
 <busses>
 </busses>
@@ -8497,6 +8504,15 @@ Based on the following sources:
 <pinref part="SUPPLY9" gate="GND" pin="GND"/>
 <wire x1="200.66" y1="266.7" x2="200.66" y2="259.08" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U2" gate="P" pin="VSS"/>
+<pinref part="SUPPLY10" gate="GND" pin="GND"/>
+<wire x1="386.08" y1="269.24" x2="386.08" y2="271.78" width="0.1524" layer="91"/>
+<pinref part="C9" gate="G$1" pin="2"/>
+<wire x1="396.24" y1="276.86" x2="396.24" y2="271.78" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="271.78" x2="386.08" y2="271.78" width="0.1524" layer="91"/>
+<junction x="386.08" y="271.78"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -8535,6 +8551,15 @@ Based on the following sources:
 <pinref part="R5" gate="G$1" pin="1"/>
 <pinref part="P+5" gate="1" pin="+5V"/>
 <wire x1="200.66" y1="289.56" x2="200.66" y2="294.64" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U2" gate="P" pin="VDD"/>
+<pinref part="P+6" gate="1" pin="+5V"/>
+<wire x1="386.08" y1="289.56" x2="386.08" y2="287.02" width="0.1524" layer="91"/>
+<pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="396.24" y1="287.02" x2="396.24" y2="284.48" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="287.02" x2="386.08" y2="287.02" width="0.1524" layer="91"/>
+<junction x="386.08" y="287.02"/>
 </segment>
 </net>
 <net name="N$7" class="0">

@@ -8256,8 +8256,8 @@ Based on the following sources:
 <part name="FRAME1" library="frames" deviceset="FRAME_B_L" device=""/>
 <part name="D1" library="diode" deviceset="GF1" device=""/>
 <part name="U1" library="nocLock_temp" deviceset="ATMEGA88A" device=""/>
-<part name="R1" library="rcl" deviceset="R-US_" device="R0805"/>
-<part name="R2" library="rcl" deviceset="R-US_" device="R0805"/>
+<part name="R1" library="rcl" deviceset="R-US_" device="R0805" value="220"/>
+<part name="R2" library="rcl" deviceset="R-US_" device="R0805" value="330"/>
 <part name="R3" library="rcl" deviceset="R-US_" device="R0805"/>
 <part name="R4" library="rcl" deviceset="R-US_" device="R0805"/>
 <part name="Q1" library="nocLock_temp" deviceset="DMG1012UW-7" device=""/>
@@ -8716,9 +8716,7 @@ Based on the following sources:
 <wire x1="335.28" y1="91.44" x2="342.9" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="302.26" y1="101.6" x2="302.26" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="302.26" y1="129.54" x2="312.42" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="312.42" y1="129.54" x2="314.96" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="129.54" x2="312.42" y2="157.48" width="0.1524" layer="91"/>
-<junction x="312.42" y="129.54"/>
 <pinref part="U1" gate="G$1" pin="PB3(PCINT3/OC2A/MOSI)"/>
 <wire x1="363.22" y1="223.52" x2="370.84" y2="223.52" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="157.48" x2="370.84" y2="157.48" width="0.1524" layer="91"/>
