@@ -2,25 +2,27 @@
  * nocLock.c
  *
  * Created: 10/3/2014 7:12:52 PM
- *  Authors: Sean Koppenhafer, Cameron Tribe, Travis Berger, Jaime Rodriguez
+ *  Authors: Sean Koppenhafer, Travis Berger, Cameron Tribe, Jaime Rodriguez
  */ 
 
-#define F_CPU 8000000		//8MHz CPU clock
-#define MAXIMUM_KNOCKS 10
-#define SOUND_THRESHOLD 200
-#define BAUD 9600
-#define BAUD_CALC_RATE ((F_CPU/16/BAUD) - 1)
-#define TIME_OFFSET_MS 100		//Time offset for inputting code in MS
+#define F_CPU 8000000				//8MHz CPU clock
+#define MAXIMUM_KNOCKS 100
+#define SOUND_THRESHOLD 415
+#define TIME_OFFSET_MS 100			//Time tolerance for input knocks
+#define POST_KNOCK_DELAY_MS 100		//Time to delay in ms after a knock spike on ADC
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/eeprom.h>
 #include <inttypes.h>
+#include <util/delay.h>
 
+/* Functions that deal with the knocks */
 uint8_t check_button(void);
 uint8_t store_code(int*);
 uint8_t check_code(int*, uint8_t);
 
+/* Output control functions */
 void open_lock(void);
 void close_lock(void);
 void green_LED_on(void);
@@ -28,20 +30,22 @@ void green_LED_off(void);
 void red_LED_on(void);
 void red_LED_off(void);
 
+/* Timer functions */
 void turn_on_timer(void);
 void turn_off_timer(void);
 
 int time_gap_average(int*, int);
 
+/* ADC functions */
 void setup_ADC(void);
 void start_conversion(void);
 
+/* EEPROM functions */
 void write_eeprom(int*, uint8_t);
 uint8_t read_eeprom(int*);
 void clear_eeprom(void);
-void setup_serial(void);
 
-int current_time_ms = 0;
+volatile int current_time_ms = 0;
 
 int main(void)
 {
@@ -51,11 +55,9 @@ int main(void)
 	uint8_t button_return;
 	int knock_times[MAXIMUM_KNOCKS];
 	DDRB = 0x0E;	//Make PORT1-3 of B an output and port 0 an input
-	PORTB = 0x02;	//Turn on pull up resistors for button on port 0
+	PORTB = 0x01;	//Turn on pull up resistors for button on port 0
 	button_return = 0xFF;
-	sei();			//Turn on global interrupts
 	setup_ADC();
-	setup_serial();
 	
 	/*If read_eeprom returns 0, then no knock is currently stored
 	which means we keep the solenoid unlocked */
@@ -71,7 +73,6 @@ int main(void)
 		red_LED_on();
 	}
 	
-	button_return = check_button();
     while(1)
     {
 		//Active low button
@@ -116,6 +117,7 @@ uint8_t check_button(void) {
 uint8_t store_code(int* knock_times) {
 	uint8_t knock_index;
 	uint8_t button_return;
+	sei();			//Turn on global interrupts
 	
 	button_return = check_button();
 	knock_index = 0;
@@ -127,6 +129,7 @@ uint8_t store_code(int* knock_times) {
 		button_return = check_button();
 	}
 	knock_times[knock_index++] = 0;
+	_delay_ms(POST_KNOCK_DELAY_MS);		//Delay after first spike in knock value
 	turn_on_timer();
 	
 	button_return = check_button();
@@ -135,17 +138,15 @@ uint8_t store_code(int* knock_times) {
 		//Only store sounds that are louder than the threshold
 		if( ADC > SOUND_THRESHOLD ) {
 			knock_times[knock_index++] = current_time_ms;
+			_delay_ms(POST_KNOCK_DELAY_MS);		//Delay after first spike in knock value
 		}
 		
 		button_return = check_button();
-		//Poll until we can send data again
-		while( !( UCSR0A & ( 1 << UDRE0 )) ) {
-			UDR0 = ADCL;	//Send lower 8 bytes of serial to the console
-		}
 	}
 	
 	turn_off_timer();
 EXIT:
+	cli();
 	return knock_index;
 }
 
@@ -155,9 +156,10 @@ uint8_t check_code(int* orig_knock_times, uint8_t orig_knock_number) {
 	uint8_t knock_index;
 	uint8_t retval;
 	int unlock_knock_times[MAXIMUM_KNOCKS];
-	int orig_gaps;
-	int unlock_gaps;
+	//int orig_gaps;
+	//int unlock_gaps;
 	uint8_t button_return;
+	sei();
 	
 	button_return = check_button();
 	knock_index = 0;
@@ -170,6 +172,7 @@ uint8_t check_code(int* orig_knock_times, uint8_t orig_knock_number) {
 		button_return = check_button();
 	}
 	unlock_knock_times[knock_index++] = 0;
+	_delay_ms(POST_KNOCK_DELAY_MS);		//Delay after first spike in knock value
 	turn_on_timer();
 	
 	button_return = check_button();
@@ -178,6 +181,7 @@ uint8_t check_code(int* orig_knock_times, uint8_t orig_knock_number) {
 		//Only store sounds that are louder than the threshold
 		if(  ADC > SOUND_THRESHOLD ) {
 			unlock_knock_times[knock_index++] = current_time_ms;
+			_delay_ms(POST_KNOCK_DELAY_MS);		//Delay after first spike in knock value
 		}
 		button_return = check_button();
 	}
@@ -206,6 +210,7 @@ uint8_t check_code(int* orig_knock_times, uint8_t orig_knock_number) {
 	
 EXIT:
 	turn_off_timer();
+	cli();
 	return retval;
 }
 
@@ -236,7 +241,7 @@ void red_LED_off(void) {
 
 /* Turns on the timer */
 void turn_on_timer(void) {
-	uint8_t compare_ticks = 125;	//Interrupt every 1ms
+	uint8_t compare_ticks = 250;		//Interrupt every 1ms on 16MHz clock
 	TCCR0A = (1 << WGM01);				//Set the CTC bit
 	OCR0A = compare_ticks;				//Interrupt every 1ms
 	TIMSK0 = (1 << OCIE0A);				//Enable compare register interrupts
@@ -334,15 +339,6 @@ void clear_eeprom(void) {
 	eeprom_address = 0;
 	
 	eeprom_write_byte(eeprom_address, knock_count);
-}
-
-/* Setup UART for serial transfers */
-void setup_serial(void) {
-	//Set the BAUD rate
-	UBRR0H = (BAUD_CALC_RATE >> 8);
-	UBRR0L = BAUD_CALC_RATE;
-	UCSR0B = (1 << TXEN0);					//Enable TX pin
-	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);	//8 bit data transmission
 }
 
 /* Interrupt service routine for timer */
