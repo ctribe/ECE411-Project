@@ -9,9 +9,8 @@
 #define MAXIMUM_KNOCKS 100
 #define SOUND_THRESHOLD 415
 #define TIME_OFFSET_MS 100			//Time tolerance for input knocks
-#define POST_KNOCK_DELAY_MS 500		//Time to delay in ms after a knock spike on ADC should be 100
+#define POST_KNOCK_DELAY_MS 100		//Time to delay in ms after a knock spike on ADC
 #define LED_DELAY_TIME_MS 2000		//Delay time for LEDs to stay on
-#define BUTTON_DELAY_TIME_MS 300
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -55,16 +54,14 @@ int main(void)
 	uint8_t number_of_knocks;
 	uint8_t inside_button, outside_button;
 	int knock_times[MAXIMUM_KNOCKS];
+	uint8_t record_return;
 	DDRB = 0x1C;		//Make PORTB 2-4 an output and PORTB 0-1 an input
 	PORTB = 0x03;		//Turn on pull up resistors for buttons on PORTB 0-1
-	
-	write_eeprom(NULL,0xFF);
 	
 	/* Setup */
 	inside_button = 0xFF;
 	outside_button = 0xFF;
 	setup_ADC();
-	red_LED_on();
 	
 	/*If EEPROM reads 0xFF, then no knock is stored*/
 	number_of_knocks = read_eeprom(&knock_times[0]);
@@ -77,10 +74,9 @@ int main(void)
 				open_lock();
 			}
 			if(!inside_button) {
-				_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
-				number_of_knocks = record_knock(&knock_times[0]);
+				record_return = record_knock(&knock_times[0]);
 				//Check for a valid knock number
-				if( number_of_knocks > 0 && number_of_knocks < MAXIMUM_KNOCKS ) {
+				if( record_return > 0 && record_return < MAXIMUM_KNOCKS ) {
 					break;
 				}
 			}
@@ -90,20 +86,12 @@ int main(void)
 		}
 	}
 	
-	//Update the button state before entering next loop
-	outside_button = check_outside_button();
-	inside_button = check_inside_button();
-	
 	for(;;) {
 		if(!outside_button) {
-			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
 			check_knock(&knock_times[0], number_of_knocks);
-			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
 		}
 		if(!inside_button) {
-			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
-			number_of_knocks = record_knock(&knock_times[0]);
-			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
+			record_return = record_knock(&knock_times[0]);
 		}
 		
 		outside_button = check_outside_button();
