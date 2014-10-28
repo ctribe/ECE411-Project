@@ -9563,13 +9563,13 @@ http://www.zetex.com&lt;p&gt;
 <instance part="SUPPLY15" gate="GND" x="170.18" y="55.88"/>
 <instance part="P+8" gate="1" x="198.12" y="121.92"/>
 <instance part="FRAME2" gate="G$1" x="407.4414" y="259.8928"/>
-<instance part="R3" gate="G$1" x="312.42" y="93.98" smashed="yes" rot="R90">
-<attribute name="NAME" x="318.77" y="97.5614" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="318.77" y="94.742" size="1.778" layer="96" rot="R180"/>
+<instance part="R3" gate="G$1" x="314.96" y="93.98" smashed="yes" rot="R90">
+<attribute name="NAME" x="321.31" y="97.5614" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="321.31" y="94.742" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R4" gate="G$1" x="312.42" y="63.5" smashed="yes" rot="R90">
-<attribute name="NAME" x="318.77" y="67.0814" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="318.77" y="64.262" size="1.778" layer="96" rot="R180"/>
+<instance part="R4" gate="G$1" x="314.96" y="63.5" smashed="yes" rot="R90">
+<attribute name="NAME" x="321.31" y="67.0814" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="321.31" y="64.262" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="R8" gate="G$1" x="350.52" y="93.98" smashed="yes" rot="R90">
 <attribute name="NAME" x="356.87" y="97.5614" size="1.778" layer="95" rot="R180"/>
@@ -9579,7 +9579,7 @@ http://www.zetex.com&lt;p&gt;
 <attribute name="NAME" x="356.87" y="67.0814" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="356.87" y="64.262" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="SUPPLY10" gate="GND" x="312.42" y="53.34"/>
+<instance part="SUPPLY10" gate="GND" x="314.96" y="53.34"/>
 <instance part="SUPPLY13" gate="GND" x="350.52" y="53.34"/>
 <instance part="SUPPLY14" gate="GND" x="228.6" y="132.08"/>
 <instance part="U$2" gate="G$1" x="152.4" y="121.92"/>
@@ -9693,7 +9693,7 @@ http://www.zetex.com&lt;p&gt;
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
 <pinref part="SUPPLY10" gate="GND" pin="GND"/>
-<wire x1="312.42" y1="55.88" x2="312.42" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="55.88" x2="314.96" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R9" gate="G$1" pin="1"/>
@@ -10026,11 +10026,11 @@ http://www.zetex.com&lt;p&gt;
 <segment>
 <pinref part="R3" gate="G$1" pin="1"/>
 <pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="312.42" y1="88.9" x2="312.42" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="88.9" x2="314.96" y2="76.2" width="0.1524" layer="91"/>
 <pinref part="Q1" gate="A" pin="G"/>
-<wire x1="312.42" y1="76.2" x2="312.42" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="317.5" y1="76.2" x2="312.42" y2="76.2" width="0.1524" layer="91"/>
-<junction x="312.42" y="76.2"/>
+<wire x1="314.96" y1="76.2" x2="314.96" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="76.2" x2="314.96" y2="76.2" width="0.1524" layer="91"/>
+<junction x="314.96" y="76.2"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -10047,9 +10047,9 @@ http://www.zetex.com&lt;p&gt;
 <junction x="320.04" y="203.2"/>
 <wire x1="347.98" y1="203.2" x2="347.98" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="312.42" y1="134.62" x2="312.42" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="134.62" x2="314.96" y2="99.06" width="0.1524" layer="91"/>
 <label x="269.24" y="137.16" size="1.778" layer="95"/>
-<wire x1="347.98" y1="134.62" x2="312.42" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="347.98" y1="134.62" x2="314.96" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SCK" class="0">
