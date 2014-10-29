@@ -1063,6 +1063,7 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <text x="31.75" y="42.545" size="1.778" layer="48">Date</text>
 <text x="42.545" y="42.545" size="1.778" layer="48">Name</text>
 </package>
+<<<<<<< Updated upstream
 <package name="2-PIN_CONNECTOR">
 <description>Connector</description>
 <wire x1="-2.54" y1="-3.556" x2="2.54" y2="-3.556" width="0.1524" layer="21"/>
@@ -1103,6 +1104,8 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <wire x1="-2.54" y1="-3.556" x2="-2.54" y2="1.27" width="0.1524" layer="21"/>
 <wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.1524" layer="21"/>
 </package>
+=======
+>>>>>>> Stashed changes
 </packages>
 <symbols>
 <symbol name="ATMEGA88A">
@@ -1271,6 +1274,7 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <wire x1="43.18" y1="0" x2="0" y2="0" width="0.8128" layer="94"/>
 <wire x1="86.36" y1="0" x2="43.18" y2="0" width="0.8128" layer="94"/>
 </symbol>
+<<<<<<< Updated upstream
 <symbol name="PIEZO">
 <wire x1="-1.016" y1="0" x2="-2.54" y2="0" width="0.1524" layer="94"/>
 <wire x1="7.62" y1="0" x2="3.556" y2="0" width="0.1524" layer="94"/>
@@ -1289,6 +1293,8 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <pin name="1" x="7.62" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
 <wire x1="3.556" y1="0" x2="3.556" y2="4.318" width="0.254" layer="94"/>
 </symbol>
+=======
+>>>>>>> Stashed changes
 </symbols>
 <devicesets>
 <deviceset name="ATMEGA88A" prefix="U">
@@ -1396,6 +1402,7 @@ Up to 20 MHz</description>
 </device>
 </devices>
 </deviceset>
+<<<<<<< Updated upstream
 <deviceset name="CEP-110">
 <gates>
 <gate name="G$1" symbol="PIEZO" x="17.78" y="-5.08"/>
@@ -1412,6 +1419,8 @@ Up to 20 MHz</description>
 </device>
 </devices>
 </deviceset>
+=======
+>>>>>>> Stashed changes
 </devicesets>
 </library>
 <library name="rcl">
@@ -9042,6 +9051,7 @@ Based on the following sources:
 </library>
 <library name="nocLock_temp_Rev2">
 <packages>
+<<<<<<< Updated upstream
 <package name="2-PIN_CONNECTOR">
 <description>Connector</description>
 <wire x1="-2.54" y1="-3.556" x2="2.54" y2="-3.556" width="0.1524" layer="21"/>
@@ -9082,6 +9092,8 @@ Based on the following sources:
 <wire x1="-2.54" y1="-3.556" x2="-2.54" y2="1.27" width="0.1524" layer="21"/>
 <wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.1524" layer="21"/>
 </package>
+=======
+>>>>>>> Stashed changes
 <package name="SOT363">
 <wire x1="-2.27" y1="0.55" x2="-0.27" y2="0.55" width="0.2032" layer="51"/>
 <wire x1="-0.27" y1="0.55" x2="-0.27" y2="-0.55" width="0.2032" layer="21"/>
@@ -9151,6 +9163,7 @@ Based on the following sources:
 </package>
 </packages>
 <symbols>
+<<<<<<< Updated upstream
 <symbol name="2XCONNECTOR">
 <wire x1="1.905" y1="3.81" x2="-1.905" y2="3.81" width="0.254" layer="94"/>
 <wire x1="-1.905" y1="-1.27" x2="-1.905" y2="3.81" width="0.254" layer="94"/>
@@ -9164,6 +9177,8 @@ Based on the following sources:
 <pin name="1" x="-5.08" y="2.54" visible="pad" length="short" direction="pas" swaplevel="1"/>
 <pin name="2" x="-5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1"/>
 </symbol>
+=======
+>>>>>>> Stashed changes
 <symbol name="DMN63D8LDW-7">
 <description>MOSFET 2N-CH 30V 220MA SOT363</description>
 <text x="1.27" y="0" size="1.778" layer="96">&gt;VALUE</text>
@@ -9239,6 +9254,7 @@ Based on the following sources:
 </symbol>
 </symbols>
 <devicesets>
+<<<<<<< Updated upstream
 <deviceset name="640455-2" prefix="J">
 <description>2 Pin Rectangular Connector</description>
 <gates>
@@ -9256,6 +9272,8 @@ Based on the following sources:
 </device>
 </devices>
 </deviceset>
+=======
+>>>>>>> Stashed changes
 <deviceset name="DMN63D8LDW-7" prefix="Q">
 <description>Dual MOSFET 2N-CH 30V 220MA SOT363</description>
 <gates>
@@ -9422,12 +9440,15 @@ http://www.zetex.com&lt;p&gt;
 <part name="SUPPLY10" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY13" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY14" library="supply2" deviceset="GND" device=""/>
+<<<<<<< Updated upstream
 <part name="PIEZO" library="nocLock_temp" deviceset="CEP-110" device=""/>
 <part name="J2" library="nocLock_temp_Rev2" deviceset="640455-2" device=""/>
 <part name="J3" library="nocLock_temp_Rev2" deviceset="640455-2" device=""/>
 <part name="J4" library="nocLock_temp_Rev2" deviceset="640455-2" device=""/>
 <part name="J5" library="nocLock_temp_Rev2" deviceset="640455-2" device=""/>
 <part name="J6" library="nocLock_temp_Rev2" deviceset="640455-2" device=""/>
+=======
+>>>>>>> Stashed changes
 <part name="U$2" library="supply1" deviceset="+9V" device=""/>
 <part name="D5" library="zetex" deviceset="VAR2SOT23" device=""/>
 <part name="D6" library="zetex" deviceset="VAR2SOT23" device=""/>
@@ -9440,11 +9461,19 @@ http://www.zetex.com&lt;p&gt;
 <sheets>
 <sheet>
 <plain>
+<<<<<<< Updated upstream
 <wire x1="424.18" y1="218.44" x2="480.06" y2="218.44" width="0.1524" layer="97"/>
 <wire x1="480.06" y1="218.44" x2="480.06" y2="93.98" width="0.1524" layer="97"/>
 <wire x1="480.06" y1="93.98" x2="424.18" y2="93.98" width="0.1524" layer="97"/>
 <wire x1="424.18" y1="93.98" x2="424.18" y2="218.44" width="0.1524" layer="97"/>
 <text x="426.72" y="213.36" size="1.778" layer="97">Solenoid Driver</text>
+=======
+<wire x1="403.86" y1="218.44" x2="459.74" y2="218.44" width="0.1524" layer="97"/>
+<wire x1="459.74" y1="218.44" x2="459.74" y2="93.98" width="0.1524" layer="97"/>
+<wire x1="459.74" y1="93.98" x2="403.86" y2="93.98" width="0.1524" layer="97"/>
+<wire x1="403.86" y1="93.98" x2="403.86" y2="218.44" width="0.1524" layer="97"/>
+<text x="406.4" y="213.36" size="1.778" layer="97">Solenoid Driver</text>
+>>>>>>> Stashed changes
 <wire x1="76.2" y1="289.56" x2="76.2" y2="236.22" width="0.1524" layer="97"/>
 <wire x1="76.2" y1="236.22" x2="142.24" y2="236.22" width="0.1524" layer="97"/>
 <wire x1="142.24" y1="236.22" x2="142.24" y2="289.56" width="0.1524" layer="97"/>
@@ -9490,6 +9519,7 @@ http://www.zetex.com&lt;p&gt;
 <instance part="C4" gate="G$1" x="205.74" y="182.88"/>
 <instance part="C5" gate="G$1" x="215.9" y="182.88"/>
 <instance part="L1" gate="G$1" x="193.04" y="193.04"/>
+<<<<<<< Updated upstream
 <instance part="C6" gate="G$1" x="449.58" y="153.67"/>
 <instance part="R7" gate="G$1" x="464.82" y="152.4" rot="R90"/>
 <instance part="Q3" gate="G$1" x="452.12" y="127"/>
@@ -9497,6 +9527,15 @@ http://www.zetex.com&lt;p&gt;
 <instance part="R11" gate="G$1" x="431.8" y="129.54" rot="R180"/>
 <instance part="SUPPLY2" gate="GND" x="441.96" y="109.22"/>
 <instance part="SUPPLY3" gate="GND" x="457.2" y="109.22"/>
+=======
+<instance part="C6" gate="G$1" x="429.26" y="153.67"/>
+<instance part="R7" gate="G$1" x="444.5" y="152.4" rot="R90"/>
+<instance part="Q3" gate="G$1" x="431.8" y="127"/>
+<instance part="R10" gate="G$1" x="421.64" y="121.92" rot="R90"/>
+<instance part="R11" gate="G$1" x="411.48" y="129.54" rot="R180"/>
+<instance part="SUPPLY2" gate="GND" x="421.64" y="109.22"/>
+<instance part="SUPPLY3" gate="GND" x="436.88" y="109.22"/>
+>>>>>>> Stashed changes
 <instance part="C7" gate="G$1" x="101.6" y="256.54"/>
 <instance part="R12" gate="G$1" x="101.6" y="271.78" rot="R270"/>
 <instance part="SUPPLY6" gate="GND" x="210.82" y="172.72"/>
@@ -9512,10 +9551,17 @@ http://www.zetex.com&lt;p&gt;
 <instance part="U2" gate="B" x="129.54" y="187.96"/>
 <instance part="U2" gate="C" x="152.4" y="187.96"/>
 <instance part="S2" gate="G$1" x="86.36" y="177.8" rot="R90"/>
+<<<<<<< Updated upstream
 <instance part="D2" gate="D" x="447.04" y="187.96" rot="R90"/>
 <instance part="D3" gate="G$1" x="355.6" y="274.32" rot="R180"/>
 <instance part="R13" gate="G$1" x="355.6" y="261.62"/>
 <instance part="SUPPLY11" gate="GND" x="378.46" y="251.46"/>
+=======
+<instance part="D2" gate="D" x="426.72" y="187.96" rot="R90"/>
+<instance part="D3" gate="G$1" x="355.6" y="276.86" rot="R90"/>
+<instance part="R13" gate="G$1" x="342.9" y="276.86" rot="R270"/>
+<instance part="SUPPLY11" gate="GND" x="355.6" y="251.46"/>
+>>>>>>> Stashed changes
 <instance part="U3" gate="G$1" x="172.72" y="93.98"/>
 <instance part="D1" gate="D" x="251.46" y="274.32" rot="R90"/>
 <instance part="R2" gate="G$1" x="241.3" y="274.32" rot="R270"/>
@@ -9535,6 +9581,7 @@ http://www.zetex.com&lt;p&gt;
 <instance part="SUPPLY10" gate="GND" x="312.42" y="53.34"/>
 <instance part="SUPPLY13" gate="GND" x="350.52" y="53.34"/>
 <instance part="SUPPLY14" gate="GND" x="228.6" y="132.08"/>
+<<<<<<< Updated upstream
 <instance part="PIEZO" gate="G$1" x="354.33" y="287.02"/>
 <instance part="J2" gate="G$1" x="88.9" y="99.06" rot="MR0"/>
 <instance part="J3" gate="G$1" x="119.38" y="71.12" rot="MR0"/>
@@ -9545,6 +9592,12 @@ http://www.zetex.com&lt;p&gt;
 <instance part="D5" gate="A" x="111.76" y="101.6"/>
 <instance part="D6" gate="A" x="127" y="93.98" rot="R90"/>
 <instance part="U$3" gate="G$1" x="457.2" y="215.9"/>
+=======
+<instance part="U$2" gate="G$1" x="152.4" y="121.92"/>
+<instance part="D5" gate="A" x="111.76" y="101.6"/>
+<instance part="D6" gate="A" x="127" y="93.98" rot="R90"/>
+<instance part="U$3" gate="G$1" x="436.88" y="215.9"/>
+>>>>>>> Stashed changes
 <instance part="SUPPLY12" gate="GND" x="332.74" y="53.34"/>
 <instance part="Q1" gate="A" x="320.04" y="78.74" rot="MR0"/>
 <instance part="Q1" gate="B" x="342.9" y="78.74"/>
@@ -9558,12 +9611,20 @@ http://www.zetex.com&lt;p&gt;
 <segment>
 <pinref part="R10" gate="G$1" pin="1"/>
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
+<<<<<<< Updated upstream
 <wire x1="441.96" y1="116.84" x2="441.96" y2="111.76" width="0.1524" layer="91"/>
+=======
+<wire x1="421.64" y1="116.84" x2="421.64" y2="111.76" width="0.1524" layer="91"/>
+>>>>>>> Stashed changes
 </segment>
 <segment>
 <pinref part="SUPPLY3" gate="GND" pin="GND"/>
 <pinref part="Q3" gate="G$1" pin="S"/>
+<<<<<<< Updated upstream
 <wire x1="457.2" y1="111.76" x2="457.2" y2="124.46" width="0.1524" layer="91"/>
+=======
+<wire x1="436.88" y1="111.76" x2="436.88" y2="124.46" width="0.1524" layer="91"/>
+>>>>>>> Stashed changes
 </segment>
 <segment>
 <pinref part="C4" gate="G$1" pin="2"/>
@@ -9615,11 +9676,17 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="106.68" y1="99.06" x2="106.68" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="SUPPLY4" gate="GND" pin="GND"/>
 <wire x1="93.98" y1="99.06" x2="106.68" y2="99.06" width="0.1524" layer="91"/>
+<<<<<<< Updated upstream
 <pinref part="J2" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="SUPPLY5" gate="GND" pin="GND"/>
 <pinref part="J3" gate="G$1" pin="2"/>
+=======
+</segment>
+<segment>
+<pinref part="SUPPLY5" gate="GND" pin="GND"/>
+>>>>>>> Stashed changes
 <wire x1="124.46" y1="71.12" x2="127" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="127" y1="71.12" x2="127" y2="48.26" width="0.1524" layer="91"/>
 </segment>
@@ -9640,6 +9707,7 @@ http://www.zetex.com&lt;p&gt;
 <junction x="170.18" y="68.58"/>
 </segment>
 <segment>
+<<<<<<< Updated upstream
 <pinref part="R13" gate="G$1" pin="2"/>
 <wire x1="360.68" y1="261.62" x2="370.84" y2="261.62" width="0.1524" layer="91"/>
 <pinref part="D3" gate="G$1" pin="A"/>
@@ -9654,6 +9722,8 @@ http://www.zetex.com&lt;p&gt;
 <pinref part="PIEZO" gate="G$1" pin="1"/>
 </segment>
 <segment>
+=======
+>>>>>>> Stashed changes
 <pinref part="R4" gate="G$1" pin="1"/>
 <pinref part="SUPPLY10" gate="GND" pin="GND"/>
 <wire x1="312.42" y1="55.88" x2="312.42" y2="58.42" width="0.1524" layer="91"/>
@@ -9688,6 +9758,21 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="340.36" y1="66.04" x2="332.74" y2="66.04" width="0.1524" layer="91"/>
 <junction x="332.74" y="66.04"/>
 </segment>
+<<<<<<< Updated upstream
+=======
+<segment>
+<pinref part="R13" gate="G$1" pin="2"/>
+<wire x1="342.9" y1="271.78" x2="342.9" y2="261.62" width="0.1524" layer="91"/>
+<pinref part="D3" gate="G$1" pin="A"/>
+<wire x1="342.9" y1="261.62" x2="355.6" y2="261.62" width="0.1524" layer="91"/>
+<wire x1="355.6" y1="261.62" x2="355.6" y2="274.32" width="0.1524" layer="91"/>
+<wire x1="355.6" y1="261.62" x2="368.3" y2="261.62" width="0.1524" layer="91"/>
+<wire x1="368.3" y1="261.62" x2="368.3" y2="270.51" width="0.1524" layer="91"/>
+<junction x="355.6" y="261.62"/>
+<pinref part="SUPPLY11" gate="GND" pin="GND"/>
+<wire x1="355.6" y1="254" x2="355.6" y2="261.62" width="0.1524" layer="91"/>
+</segment>
+>>>>>>> Stashed changes
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -9771,16 +9856,25 @@ http://www.zetex.com&lt;p&gt;
 <segment>
 <pinref part="R11" gate="G$1" pin="1"/>
 <pinref part="Q3" gate="G$1" pin="G"/>
+<<<<<<< Updated upstream
 <wire x1="436.88" y1="129.54" x2="441.96" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="441.96" y1="129.54" x2="449.58" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="441.96" y1="127" x2="441.96" y2="129.54" width="0.1524" layer="91"/>
 <junction x="441.96" y="129.54"/>
+=======
+<wire x1="416.56" y1="129.54" x2="421.64" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="R10" gate="G$1" pin="2"/>
+<wire x1="421.64" y1="129.54" x2="429.26" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="421.64" y1="127" x2="421.64" y2="129.54" width="0.1524" layer="91"/>
+<junction x="421.64" y="129.54"/>
+>>>>>>> Stashed changes
 </segment>
 </net>
 <net name="N$10" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="2"/>
+<<<<<<< Updated upstream
 <wire x1="457.2" y1="180.34" x2="457.2" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="457.2" y1="162.56" x2="464.82" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="464.82" y1="162.56" x2="464.82" y2="157.48" width="0.1524" layer="91"/>
@@ -9795,11 +9889,27 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="472.44" y1="187.96" x2="457.2" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="457.2" y1="187.96" x2="457.2" y2="180.34" width="0.1524" layer="91"/>
 <junction x="457.2" y="180.34"/>
+=======
+<wire x1="436.88" y1="180.34" x2="436.88" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="436.88" y1="162.56" x2="444.5" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="444.5" y1="162.56" x2="444.5" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="C6" gate="G$1" pin="1"/>
+<wire x1="436.88" y1="162.56" x2="429.26" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="429.26" y1="162.56" x2="429.26" y2="156.21" width="0.1524" layer="91"/>
+<junction x="436.88" y="162.56"/>
+<pinref part="D2" gate="D" pin="A"/>
+<wire x1="426.72" y1="185.42" x2="426.72" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="180.34" x2="436.88" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="452.12" y1="187.96" x2="436.88" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="436.88" y1="187.96" x2="436.88" y2="180.34" width="0.1524" layer="91"/>
+<junction x="436.88" y="180.34"/>
+>>>>>>> Stashed changes
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="C6" gate="G$1" pin="2"/>
+<<<<<<< Updated upstream
 <wire x1="449.58" y1="148.59" x2="449.58" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="449.58" y1="142.24" x2="457.2" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="Q3" gate="G$1" pin="D"/>
@@ -9808,6 +9918,16 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="464.82" y1="147.32" x2="464.82" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="464.82" y1="142.24" x2="457.2" y2="142.24" width="0.1524" layer="91"/>
 <junction x="457.2" y="142.24"/>
+=======
+<wire x1="429.26" y1="148.59" x2="429.26" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="429.26" y1="142.24" x2="436.88" y2="142.24" width="0.1524" layer="91"/>
+<pinref part="Q3" gate="G$1" pin="D"/>
+<wire x1="436.88" y1="142.24" x2="436.88" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="R7" gate="G$1" pin="1"/>
+<wire x1="444.5" y1="147.32" x2="444.5" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="444.5" y1="142.24" x2="436.88" y2="142.24" width="0.1524" layer="91"/>
+<junction x="436.88" y="142.24"/>
+>>>>>>> Stashed changes
 </segment>
 </net>
 <net name="PROGRAM" class="0">
@@ -9825,11 +9945,19 @@ http://www.zetex.com&lt;p&gt;
 <net name="SOLENOID_CONTROL" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="PB1(PCINT1/OC1A)"/>
+<<<<<<< Updated upstream
 <wire x1="304.8" y1="208.28" x2="416.56" y2="208.28" width="0.1524" layer="91"/>
 <wire x1="416.56" y1="208.28" x2="416.56" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="416.56" y1="129.54" x2="426.72" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="R11" gate="G$1" pin="2"/>
 <label x="383.54" y="208.28" size="1.778" layer="95"/>
+=======
+<wire x1="304.8" y1="208.28" x2="396.24" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="208.28" x2="396.24" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="129.54" x2="406.4" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+<label x="370.84" y="208.28" size="1.778" layer="95"/>
+>>>>>>> Stashed changes
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -9924,6 +10052,7 @@ http://www.zetex.com&lt;p&gt;
 </net>
 <net name="KNOCK_SENSE" class="0">
 <segment>
+<<<<<<< Updated upstream
 <wire x1="340.36" y1="261.62" x2="340.36" y2="274.32" width="0.1524" layer="91"/>
 <wire x1="340.36" y1="274.32" x2="340.36" y2="287.02" width="0.1524" layer="91"/>
 <wire x1="340.36" y1="287.02" x2="349.25" y2="287.02" width="0.1524" layer="91"/>
@@ -9938,6 +10067,22 @@ http://www.zetex.com&lt;p&gt;
 <label x="320.04" y="170.18" size="1.778" layer="95"/>
 <wire x1="332.74" y1="274.32" x2="332.74" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="PIEZO" gate="G$1" pin="2"/>
+=======
+<pinref part="U1" gate="G$1" pin="PC5(ADC5/SCL/PCINT13)"/>
+<wire x1="304.8" y1="172.72" x2="332.74" y2="172.72" width="0.1524" layer="91"/>
+<label x="320.04" y="170.18" size="1.778" layer="95"/>
+<wire x1="332.74" y1="292.1" x2="332.74" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="368.3" y1="292.1" x2="368.3" y2="283.21" width="0.1524" layer="91"/>
+<wire x1="355.6" y1="292.1" x2="368.3" y2="292.1" width="0.1524" layer="91"/>
+<pinref part="D3" gate="G$1" pin="C"/>
+<wire x1="355.6" y1="279.4" x2="355.6" y2="292.1" width="0.1524" layer="91"/>
+<junction x="355.6" y="292.1"/>
+<wire x1="342.9" y1="292.1" x2="355.6" y2="292.1" width="0.1524" layer="91"/>
+<pinref part="R13" gate="G$1" pin="1"/>
+<wire x1="342.9" y1="281.94" x2="342.9" y2="292.1" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="292.1" x2="342.9" y2="292.1" width="0.1524" layer="91"/>
+<junction x="342.9" y="292.1"/>
+>>>>>>> Stashed changes
 </segment>
 </net>
 <net name="N$21" class="0">
@@ -9983,7 +10128,10 @@ http://www.zetex.com&lt;p&gt;
 <net name="RESET1" class="0">
 <segment>
 <wire x1="127" y1="91.44" x2="127" y2="73.66" width="0.1524" layer="91"/>
+<<<<<<< Updated upstream
 <pinref part="J3" gate="G$1" pin="1"/>
+=======
+>>>>>>> Stashed changes
 <wire x1="124.46" y1="73.66" x2="127" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="D6" gate="A" pin="A"/>
 </segment>
@@ -10009,7 +10157,10 @@ http://www.zetex.com&lt;p&gt;
 </net>
 <net name="N$4" class="0">
 <segment>
+<<<<<<< Updated upstream
 <pinref part="J2" gate="G$1" pin="1"/>
+=======
+>>>>>>> Stashed changes
 <pinref part="D5" gate="A" pin="A"/>
 <wire x1="93.98" y1="101.6" x2="109.22" y2="101.6" width="0.1524" layer="91"/>
 </segment>
@@ -10036,6 +10187,7 @@ http://www.zetex.com&lt;p&gt;
 </segment>
 <segment>
 <pinref part="D2" gate="D" pin="C"/>
+<<<<<<< Updated upstream
 <wire x1="457.2" y1="195.58" x2="457.2" y2="213.36" width="0.1524" layer="91"/>
 <wire x1="447.04" y1="190.5" x2="447.04" y2="195.58" width="0.1524" layer="91"/>
 <wire x1="447.04" y1="195.58" x2="457.2" y2="195.58" width="0.1524" layer="91"/>
@@ -10043,6 +10195,14 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="472.44" y1="190.5" x2="457.2" y2="190.5" width="0.1524" layer="91"/>
 <wire x1="457.2" y1="190.5" x2="457.2" y2="195.58" width="0.1524" layer="91"/>
 <junction x="457.2" y="195.58"/>
+=======
+<wire x1="436.88" y1="195.58" x2="436.88" y2="213.36" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="190.5" x2="426.72" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="195.58" x2="436.88" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="452.12" y1="190.5" x2="436.88" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="436.88" y1="190.5" x2="436.88" y2="195.58" width="0.1524" layer="91"/>
+<junction x="436.88" y="195.58"/>
+>>>>>>> Stashed changes
 <pinref part="U$3" gate="G$1" pin="+9V"/>
 </segment>
 </net>
