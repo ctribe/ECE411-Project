@@ -609,6 +609,9 @@
 <wire x1="-3.302" y1="0.508" x2="-3.048" y2="0.254" width="0.1524" layer="94"/>
 <circle x="-2.54" y="-2.54" radius="0.3592" width="0" layer="94"/>
 <circle x="-2.54" y="2.54" radius="0.3592" width="0" layer="94"/>
+<pin name="S" x="-2.54" y="-5.842" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="G" x="3.175" y="-2.54" visible="off" length="short" direction="pas" rot="R180"/>
+<pin name="D" x="-2.54" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
 <polygon width="0.1524" layer="94">
 <vertex x="-3.81" y="0.508"/>
 <vertex x="-3.302" y="-0.254"/>
@@ -634,9 +637,8 @@
 <vertex x="-0.381" y="-4.318"/>
 </polygon>
 <circle x="-2.54" y="-4.318" radius="0.254" width="0" layer="94"/>
-<pin name="G" x="5.08" y="-2.54" visible="off" length="middle" direction="pas" rot="R180"/>
-<pin name="D" x="-2.54" y="7.62" visible="off" length="middle" direction="pas" rot="R270"/>
-<pin name="S" x="-2.54" y="-7.62" visible="off" length="middle" direction="pas" rot="R90"/>
+<wire x1="-2.54" y1="-5.588" x2="-2.54" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="1.143" y1="-2.54" x2="0.127" y2="-2.54" width="0.1524" layer="94"/>
 </symbol>
 <symbol name="DUAL_LED">
 <wire x1="-2.54" y1="2.54" x2="-0.635" y2="2.54" width="0.1524" layer="94"/>
