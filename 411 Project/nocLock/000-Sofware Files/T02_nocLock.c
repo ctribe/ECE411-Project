@@ -7,8 +7,8 @@
 
 #define F_CPU 8000000				//8MHz CPU clock
 #define MAXIMUM_KNOCKS 100
-#define SOUND_THRESHOLD 415
-#define TIME_OFFSET_MS 100			//Time tolerance for input knocks
+#define SOUND_THRESHOLD 300
+#define TIME_OFFSET_MS 200			//Time tolerance for input knocks
 #define POST_KNOCK_DELAY_MS 500		//Time to delay in ms after a knock spike on ADC should be 100
 #define LED_DELAY_TIME_MS 2000		//Delay time for LEDs to stay on
 #define BUTTON_DELAY_TIME_MS 300
@@ -52,13 +52,15 @@ volatile int current_time_ms = 0;
 
 int main(void)
 {
-	uint8_t number_of_knocks;
+	uint8_t number_of_knocks, temp_num_knocks;
 	uint8_t inside_button, outside_button;
 	int knock_times[MAXIMUM_KNOCKS];
 	DDRB = 0x1C;		//Make PORTB 2-4 an output and PORTB 0-1 an input
 	PORTB = 0x03;		//Turn on pull up resistors for buttons on PORTB 0-1
+	CLKPR = (1 << CLKPCE);	//Set this bit before changing clock pre-scaler
+	CLKPR = 0;				//Set pre-scaler to 1 for 8MHz clock
 	
-	write_eeprom(NULL,0xFF);
+	write_eeprom(NULL,0xFF);	//Reset the eeprom
 	
 	/* Setup */
 	inside_button = 0xFF;
@@ -102,7 +104,10 @@ int main(void)
 		}
 		if(!inside_button) {
 			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
-			number_of_knocks = record_knock(&knock_times[0]);
+			temp_num_knocks = record_knock(&knock_times[0]);
+			if(temp_num_knocks > 0 && temp_num_knocks < MAXIMUM_KNOCKS) {
+				number_of_knocks = temp_num_knocks;
+			}
 			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
 		}
 		
@@ -157,15 +162,14 @@ uint8_t record_knock(int* knock_times) {
 		green_LED_on();
 		_delay_ms(LED_DELAY_TIME_MS);
 		write_eeprom(knock_times, first_num_knocks);
-		red_LED_on();
 	}
 	else {
-		//Return the error code
-		first_num_knocks = compare_return;
-		red_LED_on();
+		//Return zero knocks if there was a compare error
+		first_num_knocks = 0;
 	}
 	
 EXIT:
+	red_LED_on();
 	return first_num_knocks;
 }
 
@@ -293,7 +297,7 @@ void yellow_LED_on(void) {
 
 /* Turns on the timer */
 void turn_on_timer(void) {
-	uint8_t compare_ticks = 250;		//Interrupt every 1ms on 16MHz clock
+	uint8_t compare_ticks = 125;		//Interrupt every 1ms
 	TCCR0A = (1 << WGM01);				//Set the CTC bit
 	OCR0A = compare_ticks;				//Interrupt every 1ms
 	TIMSK0 = (1 << OCIE0A);				//Enable compare register interrupts
