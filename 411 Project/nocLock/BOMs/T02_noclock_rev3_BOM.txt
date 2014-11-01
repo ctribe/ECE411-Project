@@ -1,0 +1,30 @@
+Partlist exported from /Users/camerontribe/Desktop/School/14-15/FA2014/ECE 411/gitrepo/ECE411-Project/411 Project/nocLock/100-Schematic/T02_noclock_rev3.sch at 10/31/14 4:02 PM
+
+Qty Value          Device           Package         Parts                     Description                          PARTNUM            TP_SIGNAL_NAME
+1                  DINA-DOC         DINA-DOC        FRAME2                    DINA DOC                                                              
+3   0.1uF          C-EUC0805        C0805           C2, C3, C4                CAPACITOR, European symbol           GRM155R61A104KA01D               
+1   10             R-US_R2512       R2512           R6                        RESISTOR, American symbol            CRM2512-JW-100ELF                
+3   100            R-US_R0805       R0805           R15, R16, R17             RESISTOR, American symbol            ESR10EZPJ103                     
+1   1000uF         CPOL-US          3.5MM_8MM       C6                        POLARIZED CAPACITOR, American symbol EKY-100ELL102MH20D               
+4   10K            R-US_R0805       R0805           R1, R2, R4, R9            RESISTOR, American symbol            ESR10EZPJ103                     
+3   10k            R-US_R0805       R0805           R5, R10, R12              RESISTOR, American symbol            ESR10EZPJ103                     
+1   10nH           L-USL0805        R0805           L1                        INDUCTOR, American symbol            CE201210-10NJ                    
+1   1M             R-US_R0805       R0805           R13                       RESISTOR, American symbol            RMCF0805JT1M00                   
+3   1k             R-US_R0805       R0805           R3, R8, R11               RESISTOR, American symbol            MCR10ERTF1001                    
+6   1uF            C-EUC0805        C0805           C7, C8, C9, C10, C11, C12 CAPACITOR, European symbol           CL21B105KBFNNNE                  
+1   220            R-US_R0805       R0805           R14                       RESISTOR, American symbol            RMCF0805FT220R                   
+1   330            R-US_R0805       R0805           R7                        RESISTOR, American symbol            MCR10ERTF3300                    
+2   4.7uF          C-EUC0805        C0805           C1, C5                    CAPACITOR, European symbol           CL21A475KOFNNNE                  
+1   4584D          4584D            SO14            U2                        Hex SCHMITT TRIGGER (74C14)          4584D                            
+1   5.1V           ZENER-DIODESOT23 SOT23           D3                        Z-Diode                              BZX84C4V7-TP                     
+1   5BC-3-CA-F     5BC-3-CA-F       3_PIN_CONNECTOR J3                        Connector Recept, 3-Pin              5BC-3-CA-F                       
+5   640455-2       640455-2         2-PIN_CONNECTOR J4, J5, J6, J7, J8        2 Pin Rectangular Connector          640455-2                         
+1   ATMEGA88A      ATMEGA88A        TQFP32          U1                        ATMega88A                            ATMEGA88A-AUR                    
+1   DMG1012UW-7    DMG1012UW-7      SOT323          Q3                        MOSFET N-CH 20V 1A SOT323            DMG1012UW-7                      
+1   DMN63D8LDW-7   DMN63D8LDW-7     SOT363          Q1                        Dual MOSFET 2N-CH 30V 220MA SOT363   DMN63D8LDW-7                     
+1   GF1            GF1              SMA-DO214AC     D2                        DIODE                                S1J                              
+1   ICSP           ICSP             ICSP            J1                        Programming ICSP Header              PRPC012DAANRC                    
+1   MCP1802        MCP1802          SOT23-5         U3                        5V Voltage Regulator MCP1802         MCP1802                          
+1   PMEG2005CT,215 PMEG2005CT,215   SOT-23          D4                                                             PMEG2005CT,215                   
+1   SKHMPSE010     SKHMPSE010       SKHMPXE010      S2                        6.2 X 6.5mm TACT Switch (SMD)                                         
+1   TPTP19R        TPTP19R          TP19R           TP1                       Test pad                                                              
