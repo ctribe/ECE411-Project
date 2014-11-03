@@ -680,6 +680,7 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
 <text x="-2.54" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.54" y="-3.81" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
 <pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
@@ -7533,7 +7534,7 @@ Based on the following sources:
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="4584" prefix="U">
+<deviceset name="4584" prefix="IC">
 <description>Hex &lt;b&gt;SCHMITT TRIGGER&lt;/b&gt; (74C14)</description>
 <gates>
 <gate name="A" symbol="4584" x="20.32" y="10.16" swaplevel="1"/>
@@ -8545,32 +8546,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </deviceset>
 </devicesets>
 </library>
-<library name="T02_nocLock">
-<packages>
-</packages>
-<symbols>
-<symbol name="SUPPLY">
-<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
-<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="+9V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="+9V">
-<gates>
-<gate name="G$1" symbol="SUPPLY" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -8677,6 +8652,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="SUPPLY10" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY13" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY14" library="supply2" deviceset="GND" device=""/>
+<part name="U$2" library="supply1" deviceset="+9V" device=""/>
 <part name="U$3" library="supply1" deviceset="+9V" device=""/>
 <part name="SUPPLY12" library="supply2" deviceset="GND" device=""/>
 <part name="Q1" library="nocLock_temp_Rev2" deviceset="DMN63D8LDW-7" device="">
@@ -8755,7 +8731,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="TP10" library="testpad" deviceset="TP" device="TP19R"/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
 <part name="U$1" library="supply1" deviceset="+9V" device=""/>
-<part name="U$4" library="T02_nocLock" deviceset="+9V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8928,6 +8903,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="SUPPLY10" gate="GND" x="312.42" y="53.34"/>
 <instance part="SUPPLY13" gate="GND" x="350.52" y="53.34"/>
 <instance part="SUPPLY14" gate="GND" x="228.6" y="132.08"/>
+<instance part="U$2" gate="G$1" x="152.4" y="121.92"/>
 <instance part="U$3" gate="G$1" x="447.04" y="233.68" smashed="yes">
 <attribute name="VALUE" x="454.66" y="233.68" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -9027,7 +9003,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="TP10" gate="G$1" x="276.86" y="91.44" rot="R90"/>
 <instance part="P+9" gate="1" x="264.16" y="114.3"/>
 <instance part="U$1" gate="G$1" x="279.4" y="114.3"/>
-<instance part="U$4" gate="G$1" x="152.4" y="121.92"/>
 </instances>
 <busses>
 </busses>
@@ -9536,6 +9511,21 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </net>
 <net name="+9V" class="0">
 <segment>
+<pinref part="U3" gate="G$1" pin="VIN"/>
+<wire x1="152.4" y1="101.6" x2="160.02" y2="101.6" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="SHDN"/>
+<wire x1="160.02" y1="86.36" x2="152.4" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="152.4" y1="81.28" x2="152.4" y2="86.36" width="0.1524" layer="91"/>
+<junction x="152.4" y="101.6"/>
+<junction x="152.4" y="86.36"/>
+<wire x1="152.4" y1="86.36" x2="152.4" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="101.6" x2="152.4" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="+9V"/>
+<pinref part="D4" gate="G$1" pin="C"/>
+<wire x1="129.54" y1="101.6" x2="152.4" y2="101.6" width="0.1524" layer="91"/>
+</segment>
+<segment>
 <pinref part="D2" gate="D" pin="C"/>
 <wire x1="447.04" y1="220.98" x2="447.04" y2="231.14" width="0.1524" layer="91"/>
 <wire x1="436.88" y1="215.9" x2="436.88" y2="220.98" width="0.1524" layer="91"/>
@@ -9556,21 +9546,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="U$1" gate="G$1" pin="+9V"/>
 <wire x1="279.4" y1="111.76" x2="279.4" y2="101.6" width="0.1524" layer="91"/>
 <junction x="279.4" y="101.6"/>
-</segment>
-<segment>
-<pinref part="U3" gate="G$1" pin="VIN"/>
-<wire x1="152.4" y1="101.6" x2="160.02" y2="101.6" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="SHDN"/>
-<wire x1="160.02" y1="86.36" x2="152.4" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="C10" gate="G$1" pin="1"/>
-<wire x1="152.4" y1="81.28" x2="152.4" y2="86.36" width="0.1524" layer="91"/>
-<junction x="152.4" y="101.6"/>
-<junction x="152.4" y="86.36"/>
-<wire x1="152.4" y1="86.36" x2="152.4" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="101.6" x2="152.4" y2="119.38" width="0.1524" layer="91"/>
-<pinref part="D4" gate="G$1" pin="C"/>
-<wire x1="129.54" y1="101.6" x2="152.4" y2="101.6" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="+9V"/>
 </segment>
 </net>
 <net name="UNLOCK" class="0">
