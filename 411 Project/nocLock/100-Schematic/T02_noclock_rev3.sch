@@ -8714,6 +8714,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="R17" library="rcl" deviceset="R-US_" device="R0805" value="100">
 <attribute name="PARTNUM" value="ESR10EZPJ103"/>
 </part>
+<<<<<<< Updated upstream
 <part name="J1" library="nocLock_temp" deviceset="ICSP" device=""/>
 <part name="S1" library="nocLock_temp" deviceset="2-1825910-7" device=""/>
 <part name="S2" library="nocLock_temp" deviceset="GPTS203211B" device=""/>
@@ -8731,6 +8732,14 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="TP10" library="testpad" deviceset="TP" device="TP19R"/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
 <part name="U$1" library="supply1" deviceset="+9V" device=""/>
+=======
+<part name="L1" library="rcl" deviceset="L-US" device="L0805" value="10nH">
+<attribute name="PARTNUM" value="CE201210-10NJ "/>
+</part>
+<part name="C6" library="rcl" deviceset="CPOL-US" device="" value="1000uF">
+<attribute name="PARTNUM" value="EKY-100ELL102MH20D"/>
+</part>
+>>>>>>> Stashed changes
 </parts>
 <sheets>
 <sheet>
@@ -8788,6 +8797,12 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <text x="424.18" y="127" size="1.778" layer="97">Unused IC</text>
 <text x="294.64" y="76.2" size="1.778" layer="97">Green Drive</text>
 <text x="355.6" y="76.2" size="1.778" layer="97">Red Drive</text>
+<<<<<<< Updated upstream
+=======
+<text x="27.94" y="175.26" size="1.778" layer="97">Button partnum</text>
+<text x="27.94" y="172.72" size="1.778" layer="97">GPTS203211B</text>
+<text x="53.34" y="266.7" size="1.778" layer="97">2-1825910-7</text>
+>>>>>>> Stashed changes
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="66.04" y="30.48"/>
