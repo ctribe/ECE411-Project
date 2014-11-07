@@ -7,7 +7,7 @@
 
 #define F_CPU 8000000				//8MHz CPU clock
 #define MAXIMUM_KNOCKS 100
-#define SOUND_THRESHOLD 300
+#define SOUND_THRESHOLD 60
 #define TIME_OFFSET_MS 200			//Time tolerance for input knocks
 #define POST_KNOCK_DELAY_MS 500		//Time to delay in ms after a knock spike on ADC should be 100
 #define LED_DELAY_TIME_MS 2000		//Delay time for LEDs to stay on
@@ -22,6 +22,7 @@
 /* Button functions */
 uint8_t check_inside_button(void);
 uint8_t check_outside_button(void);
+uint8_t check_reset_button(void);
 
 /* Functions that deal with the knocks */
 uint8_t record_knock(int*);
@@ -53,18 +54,17 @@ volatile int current_time_ms = 0;
 int main(void)
 {
 	uint8_t number_of_knocks, temp_num_knocks;
-	uint8_t inside_button, outside_button;
+	uint8_t inside_button, outside_button, reset_button;
 	int knock_times[MAXIMUM_KNOCKS];
-	DDRB = 0x1C;		//Make PORTB 2-4 an output and PORTB 0-1 an input
-	PORTB = 0x03;		//Turn on pull up resistors for buttons on PORTB 0-1
+	DDRB = 0x1C;			//Make PORTB 2-4 an output and PORTB 0-1, 6 an input
+	PORTB = 0x00;			//Set outputs to low on default
 	CLKPR = (1 << CLKPCE);	//Set this bit before changing clock pre-scaler
 	CLKPR = 0;				//Set pre-scaler to 1 for 8MHz clock
 	
-	write_eeprom(NULL,0xFF);	//Reset the eeprom
-	
 	/* Setup */
-	inside_button = 0xFF;
-	outside_button = 0xFF;
+	inside_button = 0;
+	outside_button = 0;
+	reset_button = 0;
 	setup_ADC();
 	red_LED_on();
 	
@@ -73,14 +73,19 @@ int main(void)
 	
 	/* If no knock is stored, then go into special first time condition */
 	if( number_of_knocks == 0xFF ) {
+RESET:
 		/* Loop until a knock is recorded */
 		for(;;) {
-			if(!outside_button) {
+			if(outside_button) {
 				open_lock();
 			}
-			if(!inside_button) {
+			if(inside_button) {
 				_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
 				number_of_knocks = record_knock(&knock_times[0]);
+				
+				//Need to check the inside button again to avoid getting caught in this loop
+				inside_button = check_inside_button();
+				_delay_ms(BUTTON_DELAY_TIME_MS);
 				//Check for a valid knock number
 				if( number_of_knocks > 0 && number_of_knocks < MAXIMUM_KNOCKS ) {
 					break;
@@ -95,14 +100,15 @@ int main(void)
 	//Update the button state before entering next loop
 	outside_button = check_outside_button();
 	inside_button = check_inside_button();
+	reset_button = check_reset_button();
 	
 	for(;;) {
-		if(!outside_button) {
+		if(outside_button) {
 			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
 			check_knock(&knock_times[0], number_of_knocks);
 			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
 		}
-		if(!inside_button) {
+		if(inside_button) {
 			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
 			temp_num_knocks = record_knock(&knock_times[0]);
 			if(temp_num_knocks > 0 && temp_num_knocks < MAXIMUM_KNOCKS) {
@@ -110,24 +116,39 @@ int main(void)
 			}
 			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
 		}
-		
+		if(reset_button) {
+			//Reset the knock in eeprom as backdoor fail safe
+			_delay_ms(BUTTON_DELAY_TIME_MS);
+			write_eeprom(NULL,0xFF);	//Reset the eeprom
+			number_of_knocks = 0;
+			goto RESET;
+		}
+			
 		outside_button = check_outside_button();
 		inside_button = check_inside_button();
+		reset_button = check_reset_button();
 	}
 	
 	return 0;
 }
 
-/* Button is active low */
+/* Button is active high */
 uint8_t check_inside_button(void) {
 	uint8_t pin_mask = 0x01;
 	uint8_t retval = PINB & pin_mask;
 	return retval;
 }
 
-/* Button is active low */
+/* Button is active high */
 uint8_t check_outside_button(void) {
 	uint8_t pin_mask = 0x02;
+	uint8_t retval = PINB & pin_mask;
+	return retval;
+}
+
+/* Button is active high */
+uint8_t check_reset_button(void) {
+	uint8_t pin_mask = 0x40;
 	uint8_t retval = PINB & pin_mask;
 	return retval;
 }
@@ -208,7 +229,7 @@ uint8_t read_knocks(int* knock_array, uint8_t (*button_function)(void) ) {
 	sei();		//Turn on global interrupts
 	
 	while( ADC < SOUND_THRESHOLD ) {
-		if( !button_value ) {
+		if( button_value ) {
 			 knock_index = 0;
 			goto EXIT; //No knocks were recorded before the button was pressed
 		}
@@ -221,7 +242,7 @@ uint8_t read_knocks(int* knock_array, uint8_t (*button_function)(void) ) {
 
 	button_value =  button_function();
 	//Grab input until button is pressed again
-	while( button_value ) {
+	while( !button_value ) {
 		//Only store sounds that are louder than the threshold
 		if( ADC > SOUND_THRESHOLD ) {
 			knock_array[knock_index++] = current_time_ms;
