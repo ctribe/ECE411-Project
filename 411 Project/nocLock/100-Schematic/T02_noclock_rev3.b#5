@@ -124,7 +124,7 @@
 <hole x="5.08" y="26.67" drill="2.54"/>
 <hole x="40.64" y="75.819" drill="2.54"/>
 <text x="69.763321875" y="51.51498125" size="1.778" layer="21" rot="R180">ICSP</text>
-<text x="59.24975625" y="4.509271875" size="1.4224" layer="22" rot="MR0">nocLock V1.1
+<text x="57.05265625" y="3.607571875" size="1.016" layer="22" rot="MR0">nocLock V1.1
 T02
 Cameron Tribe, Jaime Rodtiguez,
 Travis Berger, Sean Koppenhafer</text>
@@ -7178,11 +7178,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <text x="-0.762" y="-0.889" size="0.0254" layer="27">&gt;VALUE</text>
 <text x="0" y="-2.54" size="1" layer="37">&gt;TP_SIGNAL_NAME</text>
 </package>
-<package name="TP100SQ">
-<text x="-3.54" y="3.59" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.54" y="-5.08" size="1" layer="37">&gt;TP_SIGNAL_NAME</text>
-<smd name="P$1" x="0" y="0" dx="6.35" dy="6.35" layer="1"/>
-</package>
 </packages>
 </library>
 <library name="45xx">
@@ -7357,8 +7352,8 @@ Based on the following sources:
 <wire x1="1.778" y1="0.508" x2="1.524" y2="0.508" width="0.1524" layer="51"/>
 <wire x1="1.524" y1="0.508" x2="1.524" y2="0.762" width="0.1524" layer="51"/>
 <wire x1="1.524" y1="0.762" x2="1.016" y2="0.762" width="0.1524" layer="51"/>
-<pad name="1" x="-1.27" y="0" drill="0.8" rot="R90"/>
-<pad name="2" x="1.27" y="0" drill="0.8" rot="R90"/>
+<pad name="1" x="-1.27" y="0" drill="0.6" rot="R90"/>
+<pad name="2" x="1.27" y="0" drill="0.6" rot="R90"/>
 <text x="-3.2258" y="2.8448" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-1.5748" y="-2.4638" size="1.27" layer="21" ratio="10">1</text>
 <rectangle x1="-1.397" y1="0.254" x2="-1.143" y2="0.762" layer="51"/>
@@ -7395,8 +7390,8 @@ Based on the following sources:
 <wire x1="0.508" y1="0.508" x2="0.254" y2="0.508" width="0.1524" layer="51"/>
 <wire x1="0.254" y1="0.508" x2="0.254" y2="0.762" width="0.1524" layer="51"/>
 <wire x1="0.254" y1="0.762" x2="-0.254" y2="0.762" width="0.1524" layer="51"/>
-<pad name="1" x="-2.54" y="0" drill="0.8" rot="R90"/>
-<pad name="2" x="0" y="0" drill="0.8" rot="R90"/>
+<pad name="1" x="-2.54" y="0" drill="0.6" rot="R90"/>
+<pad name="2" x="0" y="0" drill="0.6" rot="R90"/>
 <text x="-3.4798" y="2.9718" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <rectangle x1="-2.667" y1="0.254" x2="-2.413" y2="0.762" layer="51"/>
 <rectangle x1="-2.667" y1="-0.762" x2="-2.413" y2="-0.254" layer="51"/>
@@ -7416,7 +7411,7 @@ Based on the following sources:
 <wire x1="3.048" y1="0.508" x2="2.794" y2="0.508" width="0.1524" layer="51"/>
 <wire x1="2.794" y1="0.508" x2="2.794" y2="0.762" width="0.1524" layer="51"/>
 <wire x1="2.794" y1="0.762" x2="2.286" y2="0.762" width="0.1524" layer="51"/>
-<pad name="3" x="2.54" y="0" drill="0.8" rot="R90"/>
+<pad name="3" x="2.54" y="0" drill="0.6" rot="R90"/>
 <rectangle x1="2.413" y1="0.254" x2="2.667" y2="0.762" layer="51"/>
 <rectangle x1="2.413" y1="-0.762" x2="2.667" y2="-0.254" layer="51"/>
 <text x="-3.2004" y="-2.5146" size="1.27" layer="21" ratio="10">1</text>
@@ -7787,6 +7782,15 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="32.10771875" y="32.322146875" size="1.27" layer="25" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="25.273" y="29.718" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
+<element name="TP2" library="testpad" package="TP19R" value="TPTP19R" x="53.34" y="19.05">
+<attribute name="TP_SIGNAL_NAME" value="" x="53.34" y="19.05" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP3" library="testpad" package="TP19R" value="TPTP19R" x="78.914865625" y="39.072146875">
+<attribute name="TP_SIGNAL_NAME" value="" x="78.914865625" y="39.072146875" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP4" library="testpad" package="TP19R" value="TPTP19R" x="2.424621875" y="52.146153125">
+<attribute name="TP_SIGNAL_NAME" value="" x="2.424621875" y="52.146153125" size="1.778" layer="27" display="off"/>
+</element>
 <element name="TP5" library="testpad" package="TP19R" value="TPTP19R" x="33.02" y="11.43">
 <attribute name="TP_SIGNAL_NAME" value="" x="33.02" y="11.43" size="1.778" layer="27" display="off"/>
 </element>
@@ -7812,9 +7816,9 @@ Please make sure your boards conform to these design rules.</description>
 <element name="J6" library="T02_nocLock" package="2-PIN_CONNECTOR" value="640455-2" x="64.7573" y="19.0373" rot="R45"/>
 <element name="J7" library="T02_nocLock" package="2-PIN_CONNECTOR" value="640455-2" x="64.8081" y="63.5127" rot="R135"/>
 <element name="J3" library="T02_nocLock" package="3_PIN_CONNECTOR" value="5BC-3-CA-F" x="41.8973" y="7.6327"/>
-<element name="TP1" library="testpad" package="TP100SQ" value="TP" x="3.7211" y="-5.6134"/>
-<element name="TP2" library="testpad" package="TP100SQ" value="TP" x="3.7211" y="-16.4973"/>
-<element name="TP3" library="testpad" package="TP100SQ" value="TP" x="3.7211" y="-27.3812"/>
+<element name="C13" library="rcl" package="C0805" value="0.1uF" x="1.6764" y="-3.2893">
+<attribute name="PARTNUM" value="GRM155R61A104KA01D" x="1.6764" y="-3.2893" size="1.778" layer="27" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -7841,8 +7845,12 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="U2" pad="7"/>
 <contactref element="C12" pad="2"/>
 <contactref element="C4" pad="2"/>
+<contactref element="C5" pad="2"/>
 <contactref element="U2" pad="11"/>
 <contactref element="U2" pad="13"/>
+<contactref element="TP2" pad="TP"/>
+<contactref element="TP3" pad="TP"/>
+<contactref element="TP4" pad="TP"/>
 <wire x1="43.18" y1="25.08" x2="42.86" y2="25.4" width="0.4064" layer="1"/>
 <wire x1="33.528" y1="41.2496" x2="34.9504" y2="41.2496" width="0.6096" layer="1"/>
 <wire x1="34.9504" y1="41.2496" x2="35.56" y2="40.64" width="0.6096" layer="1"/>
@@ -7931,6 +7939,8 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="U1" pad="3"/>
 <contactref element="U1" pad="5"/>
 <contactref element="U1" pad="21"/>
+<wire x1="53.674709375" y1="35.08536875" x2="53.674709375" y2="33.7941375" width="0.4064" layer="1"/>
+<wire x1="53.674709375" y1="33.7941375" x2="53.69500625" y2="33.773840625" width="0.4064" layer="1"/>
 <wire x1="52.874709375" y1="43.67056875" x2="52.874709375" y2="42.469678125" width="0.4064" layer="1"/>
 <wire x1="52.874709375" y1="42.469678125" x2="52.7899" y2="42.38486875" width="0.4064" layer="1"/>
 <wire x1="52.7899" y1="42.38486875" x2="54.106153125" y2="42.38486875" width="0.4064" layer="1"/>
@@ -7955,15 +7965,8 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="J7" pad="2"/>
 <via x="69.7965875" y="47.949253125" extent="1-16" drill="0.6"/>
 <via x="28.463384375" y="36.365890625" extent="1-16" drill="0.6"/>
-<wire x1="53.674709375" y1="35.08536875" x2="53.674709375" y2="34.323590625" width="0.4064" layer="1"/>
-<wire x1="53.674709375" y1="34.323590625" x2="54.3814" y2="33.6169" width="0.4064" layer="1"/>
-<contactref element="C5" pad="2"/>
-<contactref element="TP1" pad="P$1"/>
-<contactref element="TP2" pad="P$1"/>
-<contactref element="TP3" pad="P$1"/>
-<wire x1="3.7211" y1="-16.4973" x2="3.7211" y2="-27.3812" width="0" layer="19" extent="1-1"/>
-<wire x1="3.7211" y1="-5.6134" x2="3.7211" y2="-16.4973" width="0" layer="19" extent="1-1"/>
-<wire x1="18.877571875" y1="7.592225" x2="3.7211" y2="-5.6134" width="0" layer="19" extent="1-1"/>
+<contactref element="C13" pad="2"/>
+<wire x1="18.877571875" y1="7.592225" x2="2.6264" y2="-3.2893" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+5V">
 <contactref element="C1" pad="1"/>
@@ -8088,11 +8091,10 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="51.308" y1="35.052078125" x2="51.274709375" y2="35.08536875" width="0.6096" layer="1"/>
 <via x="48.879803125" y="32.07308125" extent="1-16" drill="0.6"/>
 <wire x1="48.879803125" y1="32.07308125" x2="51.251075" y2="32.068459375" width="0.6096" layer="1"/>
+<contactref element="C13" pad="1"/>
 <contactref element="U1" pad="20"/>
-<wire x1="52.874709375" y1="35.08536875" x2="52.874709375" y2="33.917090625" width="0.4064" layer="1"/>
-<wire x1="52.874709375" y1="33.917090625" x2="53.8226" y2="32.9692" width="0.4064" layer="1"/>
-<wire x1="53.8226" y1="32.9692" x2="53.8226" y2="32.0818875" width="0.4064" layer="1"/>
-<wire x1="53.8226" y1="32.0818875" x2="53.8278875" y2="32.0766" width="0.4064" layer="1"/>
+<wire x1="51.308" y1="35.052078125" x2="52.874709375" y2="35.08536875" width="0" layer="19" extent="1-1"/>
+<wire x1="0.7264" y1="-3.2893" x2="47.025171875" y2="33.9277125" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$9">
 <contactref element="R11" pad="1"/>
