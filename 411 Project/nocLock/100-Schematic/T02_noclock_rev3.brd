@@ -6,7 +6,15 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
+<<<<<<< Updated upstream
 <grid distance="0.0025" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+=======
+<<<<<<< HEAD
+<grid distance="1" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+=======
+<grid distance="0.0025" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+>>>>>>> FETCH_HEAD
+>>>>>>> Stashed changes
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -124,16 +132,18 @@
 <hole x="5.08" y="25.4" drill="2.54"/>
 <hole x="40.64" y="73.66" drill="2.54"/>
 <text x="69.763321875" y="51.51498125" size="1.778" layer="21" rot="R180">ICSP</text>
-<text x="59.24975625" y="4.509271875" size="1.4224" layer="22" rot="MR0">nocLock V1.2
+<text x="24.78195625" y="65.850271875" size="1.27" layer="21">nocLock V1.2
 T02 - Novemer 2014
 Cameron Tribe, Jaime Rodtiguez,
 Travis Berger, Sean Koppenhafer</text>
 <rectangle x1="33.909" y1="46.101" x2="34.163" y2="46.355" layer="200"/>
-<text x="26.189940625" y="9.1033625" size="0.8128" layer="21">Power</text>
 <text x="11.6713" y="27.2288" size="0.8128" layer="21" rot="R180">Batt</text>
 <text x="20.5613" y="61.236859375" size="0.8128" layer="21">Unlock Button</text>
 <text x="52.832" y="62.532259375" size="0.8128" layer="21">Knock Sense</text>
 <text x="57.266840625" y="10.518140625" size="0.8128" layer="21">Solenoid Drive</text>
+<<<<<<< HEAD
+<text x="0" y="-0.127" size="0.0508" layer="21" font="vector">/Users/camerontribe/Desktop/School/14-15/FA2014/ECE 411/gitrepo/ECE411-Project/411 Project/nocLock/Graphics/Logo/KnockLockLogo.bmp</text>
+=======
 <text x="30.20821875" y="6.9469" size="0.8128" layer="21">LED Drive</text>
 <rectangle x1="30.38601875" y1="67.91325" x2="30.82798125" y2="67.97675" layer="21"/>
 <rectangle x1="31.71698125" y1="67.91325" x2="32.92348125" y2="67.97675" layer="21"/>
@@ -842,6 +852,10 @@ Travis Berger, Sean Koppenhafer</text>
 <text x="28.1305" y="66.7385" size="5.08" layer="21" distance="100">nocLock</text>
 <wire x1="28.575" y1="66.294" x2="54.61" y2="66.294" width="0.4064" layer="21"/>
 <wire x1="55.5625" y1="66.802" x2="55.5625" y2="66.7385" width="0.4064" layer="21"/>
+<<<<<<< Updated upstream
+=======
+>>>>>>> FETCH_HEAD
+>>>>>>> Stashed changes
 </plain>
 <libraries>
 <library name="rcl">
@@ -2906,7 +2920,7 @@ Please make sure your boards conform to these design rules.</description>
 <polygon width="0.4064" layer="1" isolate="0.4064">
 <vertex x="0" y="24.13"/>
 <vertex x="-0.127" y="57.658"/>
-<vertex x="23.749" y="81.153"/>
+<vertex x="23.749" y="81.28"/>
 <vertex x="57.531" y="81.28"/>
 <vertex x="81.153" y="57.658"/>
 <vertex x="81.28" y="23.749"/>
@@ -2939,8 +2953,8 @@ Please make sure your boards conform to these design rules.</description>
 <via x="1.7801" y="31.135725" extent="1-16" drill="0.6"/>
 <via x="9.580446875" y="17.41473125" extent="1-16" drill="0.6"/>
 <via x="13.913971875" y="12.683353125" extent="1-16" drill="0.6"/>
-<via x="18.877571875" y="7.592225" extent="1-16" drill="0.6"/>
-<via x="24.393228125" y="2.589746875" extent="1-16" drill="0.6"/>
+<via x="39.733509375" y="63.136946875" extent="1-16" drill="0.6"/>
+<via x="48.307328125" y="60.445865625" extent="1-16" drill="0.6"/>
 <via x="31.9572" y="1.880040625" extent="1-16" drill="0.6"/>
 <via x="40.781834375" y="1.643471875" extent="1-16" drill="0.6"/>
 <via x="48.188225" y="1.722328125" extent="1-16" drill="0.6"/>
