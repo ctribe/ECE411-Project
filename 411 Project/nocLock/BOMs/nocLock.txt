@@ -1,0 +1,37 @@
+Partlist exported from /Users/camerontribe/Desktop/School/14-15/FA2014/ECE 411/gitrepo/ECE411-Project/411 Project/nocLock/100-Schematics/nocLock_proj/nocLock.sch at 10/20/14 10:56 AM
+
+Part Value       Device           Package         Description                   PARTNUMBER
+C1   4.7uF       C-EUC0805        C0805           CAPACITOR, European symbol              
+C2   0.1uF       C-EUC0805        C0805           CAPACITOR, European symbol              
+C3   0.1uF       C-EUC0805        C0805           CAPACITOR, European symbol              
+C4   100nF       C-EUC0805        C0805           CAPACITOR, European symbol              
+C5   4.7uF       C-EUC0805        C0805           CAPACITOR, European symbol              
+C6               C-EUC0805        C0805           CAPACITOR, European symbol              
+C7               C-EUC0805        C0805           CAPACITOR, European symbol              
+C8               C-EUC0805        C0805           CAPACITOR, European symbol              
+C9   0.1uF       C-EUC0805        C0805           CAPACITOR, European symbol              
+D1   GF1         GF1              SMA-DO214AC     DIODE                                   
+D2   GF1         GF1              SMA-DO214AC     DIODE                                   
+D3               ZENER-DIODESOT23 SOT23           Z-Diode                                 
+L1   10nH        L-USL4532C       L4532M          INDUCTOR, American symbol               
+L2               L-USL4532C       L4532M          INDUCTOR, American symbol               
+LD1              DUOLED-RG-A      DUOLED-A-5MM    DUO LED                                 
+Q3   DMG1012UW-7 DMG1012UW-7      SOT323                                                  
+R1   220         R-US_R0805       R0805           RESISTOR, American symbol               
+R2   330         R-US_R0805       R0805           RESISTOR, American symbol               
+R3               R-US_R0805       R0805           RESISTOR, American symbol               
+R4               R-US_R0805       R0805           RESISTOR, American symbol               
+R5               R-US_R0805       R0805           RESISTOR, American symbol               
+R6   18          R-US_R0805       R0805           RESISTOR, American symbol               
+R7               R-US_R0805       R0805           RESISTOR, American symbol               
+R8   10k         R-US_R0805       R0805           RESISTOR, American symbol               
+R9   10k         R-US_R0805       R0805           RESISTOR, American symbol               
+R10  10k         R-US_R0805       R0805           RESISTOR, American symbol               
+R11  1k          R-US_R0805       R0805           RESISTOR, American symbol               
+R12              R-US_R0805       R0805           RESISTOR, American symbol               
+R13  1k          R-US_R0805       R0805           RESISTOR, American symbol               
+S1   SKHMPSE010  SKHMPSE010       SKHMPXE010      6.2 X 6.5mm TACT Switch (SMD)           
+S2   SKHMPSE010  SKHMPSE010       SKHMPXE010      6.2 X 6.5mm TACT Switch (SMD)           
+U1   ATMEGA88A   ATMEGA88A        TQFP32          ATMega88A                               
+U2   4584D       4584D            SO14            Hex SCHMITT TRIGGER (74C14)             
+X1   PIEZO       PIEZO            2-PIN_CONNECTOR                               100       
