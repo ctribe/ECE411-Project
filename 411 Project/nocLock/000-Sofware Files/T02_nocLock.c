@@ -11,7 +11,8 @@
 #define TIME_OFFSET_MS 200			//Time tolerance for input knocks
 #define POST_KNOCK_DELAY_MS 500		//Time to delay in ms after a knock spike on ADC should be 100
 #define LED_DELAY_TIME_MS 2000		//Delay time for LEDs to stay on
-#define BUTTON_DELAY_TIME_MS 300
+#define BUTTON_DELAY_TIME_MS 100
+#define FLASH_DELAY 500
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -186,7 +187,19 @@ uint8_t record_knock(int* knock_times) {
 	}
 	else {
 		//Return zero knocks if there was a compare error
+		//Then flash the LED twice
 		first_num_knocks = 0;
+		PORTB &= ~0x08;		//Turn off green LED
+		PORTB &= ~0x10;		//Turn off red LED
+		_delay_ms(FLASH_DELAY);
+		red_LED_on();
+		_delay_ms(FLASH_DELAY);
+		PORTB &= ~0x10;		//Turn off red LED
+		_delay_ms(FLASH_DELAY);
+		red_LED_on();
+		_delay_ms(FLASH_DELAY);
+		PORTB &= ~0x10;		//Turn off red LED
+		_delay_ms(FLASH_DELAY);
 	}
 	
 EXIT:
