@@ -11,7 +11,8 @@
 #define TIME_OFFSET_MS 200			//Time tolerance for input knocks
 #define POST_KNOCK_DELAY_MS 500		//Time to delay in ms after a knock spike on ADC should be 100
 #define LED_DELAY_TIME_MS 2000		//Delay time for LEDs to stay on
-#define BUTTON_DELAY_TIME_MS 100
+#define BUTTON_DELAY_TIME_MS 200
+#define OUTSIDE_BUTTON_DELAY 300
 #define FLASH_DELAY 500
 
 #include <avr/io.h>
@@ -37,6 +38,7 @@ void close_lock(void);
 void green_LED_on(void);
 void red_LED_on(void);
 void yellow_LED_on(void);
+void blink_red(void);
 
 /* Timer functions */
 void turn_on_timer(void);
@@ -105,9 +107,9 @@ RESET:
 	
 	for(;;) {
 		if(outside_button) {
-			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
+			_delay_ms(OUTSIDE_BUTTON_DELAY);	//Wait for the button press period to pass
 			check_knock(&knock_times[0], number_of_knocks);
-			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
+			_delay_ms(OUTSIDE_BUTTON_DELAY);	//Wait for the button press period to pass
 		}
 		if(inside_button) {
 			_delay_ms(BUTTON_DELAY_TIME_MS);	//Wait for the button press period to pass
@@ -189,17 +191,7 @@ uint8_t record_knock(int* knock_times) {
 		//Return zero knocks if there was a compare error
 		//Then flash the LED twice
 		first_num_knocks = 0;
-		PORTB &= ~0x08;		//Turn off green LED
-		PORTB &= ~0x10;		//Turn off red LED
-		_delay_ms(FLASH_DELAY);
-		red_LED_on();
-		_delay_ms(FLASH_DELAY);
-		PORTB &= ~0x10;		//Turn off red LED
-		_delay_ms(FLASH_DELAY);
-		red_LED_on();
-		_delay_ms(FLASH_DELAY);
-		PORTB &= ~0x10;		//Turn off red LED
-		_delay_ms(FLASH_DELAY);
+		blink_red();
 	}
 	
 EXIT:
@@ -225,6 +217,9 @@ void check_knock(int* stored_knocks, uint8_t stored_knock_num) {
 	//Non-zero return is error
 	if(!compare_return) {
 		open_lock();
+	}
+	else {
+		blink_red();
 	}
 	
 EXIT:
@@ -327,6 +322,20 @@ void red_LED_on(void) {
 
 void yellow_LED_on(void) {
 	PORTB |= 0x18;		//Turn on red and green pins to make yellow
+}
+
+void blink_red(void) {
+	PORTB &= ~0x08;		//Turn off green LED
+	PORTB &= ~0x10;		//Turn off red LED
+	_delay_ms(FLASH_DELAY);
+	red_LED_on();
+	_delay_ms(FLASH_DELAY);
+	PORTB &= ~0x10;		//Turn off red LED
+	_delay_ms(FLASH_DELAY);
+	red_LED_on();
+	_delay_ms(FLASH_DELAY);
+	PORTB &= ~0x10;		//Turn off red LED
+	_delay_ms(FLASH_DELAY);
 }
 
 /* Turns on the timer */
