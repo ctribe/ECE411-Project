@@ -8,8 +8,8 @@
 #define F_CPU 8000000				//8MHz CPU clock
 #define MAXIMUM_KNOCKS 100
 #define SOUND_THRESHOLD 60
-#define TIME_OFFSET_MS 200			//Time tolerance for input knocks
-#define POST_KNOCK_DELAY_MS 500		//Time to delay in ms after a knock spike on ADC should be 100
+#define TIME_OFFSET_MS 500		//Time tolerance for input knocks
+#define POST_KNOCK_DELAY_MS 75		//Time to delay in ms after a knock spike on ADC
 #define LED_DELAY_TIME_MS 2000		//Delay time for LEDs to stay on
 #define BUTTON_DELAY_TIME_MS 200
 #define OUTSIDE_BUTTON_DELAY 300
